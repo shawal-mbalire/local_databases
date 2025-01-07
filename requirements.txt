@@ -1,0 +1,5 @@
+sqlalchemy
+faker
+pymysql
+psycopg2-binary
+# cx_Oracle

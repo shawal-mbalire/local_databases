@@ -1,0 +1,58 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_db
+    restart: always
+    privileged: true  # Grant elevated privileges
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: superadmin
+      POSTGRES_DB: our_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+  # mysql:
+  #   image: mysql:latest
+  #   container_name: mysql_db
+  #   restart: always
+  #   privileged: true
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: rootpassword
+  #     MYSQL_DATABASE: testdb
+  #     MYSQL_USER: admin
+  #     MYSQL_PASSWORD: adminpassword
+  #   ports:
+  #     - "3306:3306"
+  #   volumes:
+  #     - ./mysql_data:/var/lib/mysql
+  #
+  # mariadb:
+  #   image: mariadb:latest
+  #   container_name: mariadb_db
+  #   restart: always
+  #   privileged: true
+  #   environment:
+  #     MARIADB_ROOT_PASSWORD: rootpassword
+  #     MARIADB_DATABASE: testdb
+  #     MARIADB_USER: admin
+  #     MARIADB_PASSWORD: adminpassword
+  #   ports:
+  #     - "3307:3306"
+  #   volumes:
+  #     - ./mariadb_data:/var/lib/mysql
+  #
+  # oracle:
+  #   image: gvenzl/oracle-free:latest
+  #   container_name: oracle_db
+  #   restart: always
+  #   privileged: true
+  #   environment:
+  #     ORACLE_PASSWORD: oraclepassword
+  #     ORACLE_PDB: ORCLPDB1
+  #     ORACLE_PWD: oraclepassword
+  #     ORACLE_DB: testdb
+  #   ports:
+  #     - "1521:1521"
+  #   volumes:
+  #     - ./oracle_data:/opt/oracle/oradata
